@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:16:28 by alvapari          #+#    #+#             */
-/*   Updated: 2024/09/25 12:58:08 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:50:17 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,3 @@ int	main(int argc, char *argv[])
 		ft_free_memory(data.map.aux_matrix, data.map.height);
 	}
 }
-
-	/*  data = ft_create_window(data, map_file)
-	HEIGHT ES6
-	WI ES34
-	while (cnt <= data.map.height)
-	{
-		printf("%s\n", data.map.matrix[cnt]);
-		cnt++;
-	}
-	 data = ft_create_window(data, map_file)
-
-	}*/

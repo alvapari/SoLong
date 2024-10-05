@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:25:10 by alvapari          #+#    #+#             */
-/*   Updated: 2024/10/03 17:20:19 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:21:30 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_init_paint(t_data data)
 void    ft_create_images(t_data *data)
 {
 	data->images.collectibles = malloc(sizeof(mlx_image_t *) * data->max_colls);
+	if (!data->images.collectibles)
+		exit(1);
     data->textures.wall = mlx_load_png("./textures/wall.png");
 	if (!data->textures.wall)
         exit(1); 
@@ -51,22 +53,25 @@ void    ft_create_images(t_data *data)
 void    ft_create_images_two(t_data *data)
 {
 	data->textures.exit = mlx_load_png("./textures/exit.png");
-	if (!data->textures.exit)
-        exit(1); 
-	data->images.exit = mlx_texture_to_image(data->mlx, data->textures.exit);
-	if (!data->images.exit)
-        exit(1);
 	data->textures.player_right = mlx_load_png("./textures/right.png");
-	if (!data->textures.player_right)
-        exit(1);
-	data->images.player_right = mlx_texture_to_image(data->mlx, data->textures.player_right);
-	if (!data->images.player_right)
-        exit(1);
+    data->textures.player_up = mlx_load_png("./textures/up.png");
+    data->textures.player_down = mlx_load_png("./textures/down.png");
+    data->textures.player_left = mlx_load_png("./textures/left.png");
+    if (!data->textures.player_up || !data->textures.player_down ||
+        !data->textures.player_left || !data->textures.player_right || 
+		!data->textures.exit)
+	{
+		exit(1);
+	}	
+	data->images.exit = mlx_texture_to_image(data->mlx, data->textures.exit);
+	data->images.player = mlx_texture_to_image(data->mlx, data->textures.player_right);
+	if (!data->images.player || !data->images.exit)
+		exit(1);
 }
 
 void	ft_collectible_images(t_data *data)
 {
-	static int		count = 0;
+	int		count = 0;
 	mlx_texture_t	*texture;
 
 	while (count < data->max_colls)
@@ -98,5 +103,3 @@ void	ft_close_window(void *data)
 	free(ptr->images.collectibles);
 	ptr->images.collectibles = NULL;
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:42:40 by alvapari          #+#    #+#             */
-/*   Updated: 2024/10/03 14:32:58 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/04 19:15:29 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ void	ft_draw_wall_floor(t_data *data)
 				count2++;
 		}
 		count++;
+		ft_draw_player(data);
 	}
 }
 
 void	ft_draw_col(int count, int count2, t_data	*data)
 {
-	static int	count3 = 0;
+	static int count3 = 0;
 
 	mlx_image_to_window(data->mlx, data->images.floor, count2 * 64, count * 64);
 	if (count3 < data->max_colls)
@@ -50,7 +51,6 @@ void	ft_draw_col(int count, int count2, t_data	*data)
 		mlx_image_to_window(data->mlx, data->images.collectibles[count3], count2 * 64, count * 64);
 		count3++;
 	}
-	ft_draw_player(data);
 }
 
 void	ft_draw_player(t_data *data)
@@ -79,5 +79,5 @@ void	ft_draw_player(t_data *data)
 void	ft_player(int height, int width, t_data *data)
 {
 	mlx_image_to_window(data->mlx, data->images.floor, width * 64, height * 64);
-	mlx_image_to_window(data->mlx, data->images.player_right, width * 64, height * 64);
+	mlx_image_to_window(data->mlx, data->images.player, width * 64, height * 64);
 }

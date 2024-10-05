@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:32:45 by alvapari          #+#    #+#             */
-/*   Updated: 2024/08/28 22:27:40 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:33:17 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	ft_check_topleft(char *map, int width, int height)
 	while (map[count] != '\n')
 	{
 		if (map[count] != '1')
-			ft_print_map_error('w');
+			ft_print_map_error('w', map);
 		count++;
 	}
 	count = 0;
 	while (count < height)
 	{
 		if (map[count2] != '1')
-			ft_print_map_error('w');
+			ft_print_map_error('w', map);
 		count2 = count2 + width + 1;
 		count++;
 	}
@@ -58,7 +58,7 @@ void	ft_check_downright(char *map, int width, int height, int count)
 	while (map[count] && map[count] != '\n')
 	{
 		if (map[count] != '1')
-			ft_print_map_error('w');
+			ft_print_map_error('w', map);
 		count++;
 	}
 	count2 = width - 1;
@@ -66,7 +66,7 @@ void	ft_check_downright(char *map, int width, int height, int count)
 	while (count < height)
 	{
 		if (map[count2] != '1')
-			ft_print_map_error('w');
+			ft_print_map_error('w', map);
 		count2 = count2 + width + 1;
 		count++;
 	}

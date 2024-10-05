@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:57:22 by alvapari          #+#    #+#             */
-/*   Updated: 2024/08/28 12:40:54 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:35:48 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	ft_check_minimum_size(char *map)
 		count++;
 	}
 	if (height * width < 15)
-		ft_print_map_error('s');
+		ft_print_map_error('s', map);
 	if (map[(height * width) + height - 2] == '\0')
-		ft_print_map_error('r');
+		ft_print_map_error('r', map);
 	ft_check_rectangular(map);
 }
 
@@ -51,11 +51,11 @@ void	ft_check_rectangular(char *map)
 	{
 		if (map[count + 1] == '\0' && width - count_control != 1
 			&& map[count] != '\n')
-			ft_print_map_error('r');
+			ft_print_map_error('r', map);
 		if (map[count] == '\n')
 		{
 			if (count_control != width)
-				ft_print_map_error('r');
+				ft_print_map_error('r', map);
 			count_control = -1;
 		}
 		count++;

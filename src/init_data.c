@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:29:59 by alvapari          #+#    #+#             */
-/*   Updated: 2024/09/23 12:41:38 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:21:43 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_data	ft_init_data(t_data data)
 {
-	data.images.player_right = 0;
+	data.images.player = 0;
 	data.images.floor = 0;
 	data.images.wall = 0;
 	data.images.collectibles = 0;
@@ -22,6 +22,9 @@ t_data	ft_init_data(t_data data)
 	data.textures.exit = 0;
 	data.textures.floor = 0;
 	data.textures.player_right = 0;
+	data.textures.player_left = 0;
+	data.textures.player_down = 0;
+	data.textures.player_up = 0;
 	data.textures.wall = 0;
 	data.map.matrix = 0;
 	data.map.aux_matrix = 0;

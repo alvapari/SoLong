@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:16:33 by alvapari          #+#    #+#             */
-/*   Updated: 2024/10/03 17:20:15 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:21:35 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct  s_map
 
 typedef struct s_images
 {
-    mlx_image_t	*player_right; 
+    mlx_image_t	*player; 
 	mlx_image_t	*floor; 
 	mlx_image_t	*wall; 
 	mlx_image_t	**collectibles;
@@ -37,10 +37,13 @@ typedef struct s_images
 
 typedef struct s_textures
 {
+    mlx_texture_t	*player_down;
     mlx_texture_t	*player_right; 
+    mlx_texture_t	*player_left; 
+    mlx_texture_t	*player_up; 
 	mlx_texture_t	*floor; 
 	mlx_texture_t	*wall; 
-	mlx_texture_t	*exit; 
+	mlx_texture_t	*exit;
 } t_textures;
 
 typedef struct s_data
@@ -58,7 +61,9 @@ typedef struct s_data
 
 t_data  ft_init_data(t_data data);
 char    *ft_read_berfile(char *argv);
-void    ft_print_map_error(char   c);
+void    ft_print_map_error(char   c, char   *map);
+void	ft_print_map_error_two(char c);
+void	ft_print_way_error(char c);
 void    ft_check_format(char    *argv);
 void	ft_check_map(char *map, t_data *data);
 void    ft_check_characters(char *map, t_data *data, int count);
@@ -86,9 +91,12 @@ void	ft_player(int height, int width, t_data *data);
 void	ft_draw_player(t_data *data);
 void	ft_close_window(void *data);
 void	ft_player_move(mlx_key_data_t keydata, void *data);
-void	ft_add_step(t_data *data, int32_t *position_x, int32_t *position_y, char key);
+void	ft_add_step(t_data *data, char key);
 int	    ft_next_pos(int32_t height, int32_t width, char key, char **map);
 void	ft_change_player_position(t_data *data, char key);
-void	ft_open_exit(t_data data);
+void    ft_redraw_cell(t_data *data, int x, int y);
+void    ft_remove_collectible_image(t_data *data, int x, int y);
+void    ft_remove_exit_image(t_data *data);
+void	ft_free_map(char *map);
 
 #endif

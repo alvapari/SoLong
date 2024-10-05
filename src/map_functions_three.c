@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 15:06:49 by alvapari          #+#    #+#             */
-/*   Updated: 2024/09/13 09:46:12 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:39:02 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	ft_check_way(char	**matrix, t_data *data)
 			{
 				ft_free_memory(matrix, data->map.height);
 				ft_free_memory(data->map.matrix, data->map.height);
-				ft_print_map_error('W');
+				ft_print_way_error('W');
 			}	
 			cnt_2++;
 		}

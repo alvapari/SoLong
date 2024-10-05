@@ -6,7 +6,7 @@
 /*   By: alvapari <alvapari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:26:57 by alvapari          #+#    #+#             */
-/*   Updated: 2024/08/28 22:13:25 by alvapari         ###   ########.fr       */
+/*   Updated: 2024/10/05 14:05:39 by alvapari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_check_format(char *argv)
 	if (argv[cnt - 1] != 'r' || argv[cnt - 2] != 'e' || argv[cnt - 3] != 'b'
 		|| argv[cnt - 4] != '.')
 	{
-		ft_print_map_error('f');
+		ft_print_map_error_two('f');
 	}
 }
 
@@ -39,7 +39,7 @@ char	*ft_read_berfile(char *argv)
 	while (read(fd, &buff, 1) == 1)
 		cnt++;
 	if (cnt == 0)
-		ft_print_map_error('e');
+		ft_print_map_error_two('e');
 	read_file = malloc(sizeof(char) * cnt + 1);
 	if (!read_file)
 		return (NULL);
@@ -76,7 +76,7 @@ void	ft_check_characters(char *map, t_data *data, int count)
 	{
 		if (map[count] != '1' && map[count] != '0' && map[count] != 'E'
 			&& map[count] != 'C' && map[count] != 'P' && map[count] != '\n')
-			ft_print_map_error('c');
+			ft_print_map_error('c', map);
 		if (map[count] == 'E')
 			cnt_exit++;
 		if (map[count] == 'P')
@@ -90,5 +90,5 @@ void	ft_check_characters(char *map, t_data *data, int count)
 		count++;
 	}
 	if (cnt_exit != 1 || cnt_player != 1 || data->cnt_colls == 0)
-		ft_print_map_error('m');
+		ft_print_map_error('m', map);
 }
