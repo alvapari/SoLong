@@ -32,9 +32,12 @@ Además, hay que tener unos mapas (archivos.ber) que determinarán el dibujo del
 
 <br> 
 
+### Documentación:
 Si quieres ver la **documentación completa** del proyecto, puedes ver estos apuntes: <br> 
-https://42guideprojects.notion.site/SoLong-70b7eb8a0ef74e57b900063583a720b8
+[Documentación](https://42guideprojects.notion.site/SoLong-70b7eb8a0ef74e57b900063583a720b8)
 
 <br> 
+
+### Requerimientos:
 Si quieres leer los requerimientos del proyecto, puedes encontrarlos aquí: <br> 
-[es.subject.pdf](https://github.com/user-attachments/files/17882090/es.subject.pdf)
+[Requerimientos proyecto](https://github.com/user-attachments/files/17882090/es.subject.pdf)
